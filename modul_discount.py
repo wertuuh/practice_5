@@ -1,13 +1,9 @@
-def apply_discount(price, discount_percent):
-    """
-    Функция для применения скидки к цене.
-    price: исходная цена
-    discount_percent: процент скидки (от 0 до 100)
-    """
-    if discount_percent < 0 or discount_percent > 100:
-        raise ValueError("Скидка должна быть от 0 до 100 процентов")
-
-    discount_amount = price * (discount_percent / 100)
-    final_price = price - discount_amount
-
-    return final_price
+def apply_discount(total):
+    """Принимает сумму заказа (число), возвращает сумму заказа со скидкой."""
+    if total >= 5000:
+        rate = 0.10
+    elif total >= 3000:
+        rate = 0.05
+    else:
+        rate = 0
+    return round(total * (1 - rate), 2)
